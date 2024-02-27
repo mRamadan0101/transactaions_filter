@@ -15,7 +15,7 @@ DataProviderX data is stored in [DataProviderX.json]
 DataProviderY data is stored in [DataProviderY.json]
 
 ## DataProviderW schema is
-```json
+```code
 {
   amount:500.00,
   currency:'EGP',
@@ -31,7 +31,7 @@ pending which will have status wait
 reject which will have status nope
 
 ## DataProviderX schema is
-```json
+```code
 {
   transactionAmount:200,
   Currency:'USD',
@@ -47,7 +47,7 @@ pending which will have status 2
 reject which will have status 3
 
 ## DataProviderY schema is
-```json
+```code
 {
   amount:300,
   currency:'EGP',
