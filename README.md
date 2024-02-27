@@ -15,6 +15,7 @@ DataProviderX data is stored in [DataProviderX.json]
 DataProviderY data is stored in [DataProviderY.json]
 
 ## DataProviderW schema is
+```json
 {
   amount:500.00,
   currency:'EGP',
@@ -23,12 +24,14 @@ DataProviderY data is stored in [DataProviderY.json]
   created_at: '2021-03-29 09:36:11',
   id: 12345678
 }
+```
 We have three status for DataProviderW
 paid which will have status done
 pending which will have status wait
 reject which will have status nope
 
 ## DataProviderX schema is
+```json
 {
   transactionAmount:200,
   Currency:'USD',
@@ -37,12 +40,14 @@ reject which will have status nope
   transactionDate: '2021-03-29 09:36:11',
   transactionIdentification: 'd3d29d70-1d25-11e3-8591-034165a3a613'
 }
+```
 we have three status for DataProviderX
 paid which will have status 1
 pending which will have status 2
 reject which will have status 3
 
 ## DataProviderY schema is
+```json
 {
   amount:300,
   currency:'EGP',
@@ -51,6 +56,7 @@ reject which will have status 3
   created_at: '2021-03-29 09:36:11',
   id: '4fc2-a8d1'
 }
+```
 we have three status for DataProviderY
 paid which will have status 100
 pending which will have status 200
