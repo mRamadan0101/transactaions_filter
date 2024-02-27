@@ -1,26 +1,79 @@
-# Lumen PHP Framework
+## Notes
+- clone repository
+- run composer install
+- install postman collection included with project `Transaction.postman_collection`
+- run project `php -S localhost:8000 -t public`
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://img.shields.io/packagist/l/laravel/lumen)](https://packagist.org/packages/laravel/lumen-framework)
+## Task Details
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+We have three providers that make transfers using a phone number,
+You have examples of the structure of the data sent,
+We need to read and make some filter operations on them to get the result.
 
-> **Note:** In the years since releasing Lumen, PHP has made a variety of wonderful performance improvements. For this reason, along with the availability of [Laravel Octane](https://laravel.com/docs/octane), we no longer recommend that you begin new projects with Lumen. Instead, we recommend always beginning new projects with [Laravel](https://laravel.com).
+DataProviderW data is stored in [DataProviderW.json]
+DataProviderX data is stored in [DataProviderX.json]
+DataProviderY data is stored in [DataProviderY.json]
 
-## Official Documentation
+## DataProviderW schema is
+{
+  amount:500.00,
+  currency:'EGP',
+  phone: 00201134567890,
+  status: 'done',
+  created_at: '2021-03-29 09:36:11',
+  id: 12345678
+}
+We have three status for DataProviderW
+paid which will have status done
+pending which will have status wait
+reject which will have status nope
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+## DataProviderX schema is
+{
+  transactionAmount:200,
+  Currency:'USD',
+  senderPhone:00201234567890,
+  transactionStatus:1,
+  transactionDate: '2021-03-29 09:36:11',
+  transactionIdentification: 'd3d29d70-1d25-11e3-8591-034165a3a613'
+}
+we have three status for DataProviderX
+paid which will have status 1
+pending which will have status 2
+reject which will have status 3
 
-## Contributing
+## DataProviderY schema is
+{
+  amount:300,
+  currency:'EGP',
+  phone: 00201034567890,
+  status:100,
+  created_at: '2021-03-29 09:36:11',
+  id: '4fc2-a8d1'
+}
+we have three status for DataProviderY
+paid which will have status 100
+pending which will have status 200
+reject which will have status 300
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Security Vulnerabilities
+## Acceptance Criteria: 
+Using PHP Lumen (Micro-Framework By Laravel), implement this API endpoint /api/v1/transactaions.
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+- It should list all transactaions which combine transactaions from all the available providerDataProvider(W/X/Y).
+- It should be able to filter result by providers for example /api/v1/transactaions?provider=DataProviderX it should return transactaions from DataProviderX.
+- It should be able to filter result three statusCode (paid, pending, reject) for example /api/v1/transactaions?statusCode=paid .
+- It should return all transactaions from all providers that have status code paid.
+- It should be able to filer by amount range for example /api/v1/transactaions?amounteMin=10&amounteMax=100 it should return result between 10 and 100 including 10 and 100.
+- It should be able to filer by currency.
+- It should be able to combine all this filter together.
 
-## License
 
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## The Evaluation
+Task will be evaluated based on
+
+- Code quality.
+- Application performance in reading large files.
+- Code scalability : ability to add DataProviderZ by small changes.
+- Unit tests coverage.
+- Docker, is plus.
